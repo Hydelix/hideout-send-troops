@@ -1,0 +1,5 @@
+C:\Games\AnkerGames\Games\Mount & Blade II Bannerlord-402\Mount & Blade II Bannerlord\Modules\HideoutSendTroops\bin\Win64_Shipping_Client\HideoutSendTroops.dll
+C:\Users\ninja\Downloads\HideoutSendTroops\obj\Release\HideoutSendTroops.csproj.AssemblyReference.cache
+C:\Users\ninja\Downloads\HideoutSendTroops\obj\Release\HideoutSendTroops.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ninja\Downloads\HideoutSendTroops\obj\Release\HideoutSendTroops.csproj.CoreCompileInputs.cache
+C:\Users\ninja\Downloads\HideoutSendTroops\obj\Release\HideoutSendTroops.dll

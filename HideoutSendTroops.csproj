@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>HideoutSendTroops</AssemblyName>
+    <RootNamespace>HideoutSendTroops</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DebugType>none</DebugType>
+
+    <!-- CHANGE THIS if your game is not in the default Steam location,
+         or build with: dotnet build -c Release -p:GameFolder="D:\Games\Bannerlord" -->
+    <GameFolder Condition="'$(GameFolder)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+
+    <GameBin>$(GameFolder)\bin\Win64_Shipping_Client</GameBin>
+    <ModInstallFolder>$(GameFolder)\Modules\HideoutSendTroops</ModInstallFolder>
+    <OutputPath>$(ModInstallFolder)\bin\Win64_Shipping_Client\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="$(GameBin)\TaleWorlds.CampaignSystem.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.Core.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.Library.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.Localization.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.MountAndBlade.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.ObjectSystem.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.SaveSystem.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.Engine.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.DotNet.dll" Private="false" />
+    <Reference Include="$(GameBin)\TaleWorlds.InputSystem.dll" Private="false" />
+    <Reference Include="$(GameFolder)\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- After building, copy SubModule.xml next to the DLL so the game can load the mod. -->
+  <Target Name="InstallSubModuleXml" AfterTargets="Build">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Module\HideoutSendTroops\SubModule.xml"
+          DestinationFolder="$(ModInstallFolder)" />
+    <Message Importance="high" Text="Hideout Send Troops installed to $(ModInstallFolder)" />
+  </Target>
+
+</Project>
